@@ -3,10 +3,10 @@
 
 
 var players = [
-    {"name":"Obi-Wan Kenobi", hitPoints:120, "counterAttack":15, "image":"obi-wan.jpg"},
-    {"name":"Luke Skywalker", "hitPoints":100, "counterAttack":5, "image":"luke-skywalker.jpg"},
-    {"name":"Darth Sidious", "hitPoints":150, "counterAttack":20, "image":"darth-sidious.png"},
-   {"name":"Darth Maul", "hitPoints":180, "counterAttack":25, "image":"darth-maul.jpg"}
+    {"name":"Obi-Wan Kenobi", hitPoints:120, "attack": 8 ,"counterAttack":15, "image":"obi-wan.jpg"},
+    {"name":"Luke Skywalker", "hitPoints":100, "attack": 6 , "counterAttack":5, "image":"luke-skywalker.jpg"},
+    {"name":"Darth Sidious", "hitPoints":150,"attack": 5, "counterAttack":20, "image":"darth-sidious.png"},
+   {"name":"Darth Maul", "hitPoints":180,"attack": 4, "counterAttack":25, "image":"darth-maul.jpg"}
 ]
 
 
@@ -15,11 +15,11 @@ var players = [
 // place image variable in "<img src="assets/images/" +$(this)
 //place hit points in .character#hitPoints
 
- for(var i = 0; i < players.length; i++) {
- 	//create initial display here
+ // for(var i = 0; i < players.length; i++) {
+ // 	//create initial display here
 
- 	$
- }
+ // 	$
+ // }
 
 
 
@@ -33,15 +33,25 @@ var players = [
 //=====================================================================
 	//Picking a player
 	//=================
-	function pickPlayer = $( ".characters img" ).click(function(playerChosen) {
+
+	function pickPlayer =  {
      console.log('registered click 1')
+     //set initial attack power equal to players.player.attack
+     initialAttackPower = players.attack.value(this);
+     alert(initialAttackPower);
+//hide the current box
+      $('box').hide();
+ //display in figher area
+ 
     }
 
-    function playerChosen { 
-    	console.log("They chose" + this.players.name);
-    }
+
+  //  function playerChosen { 
+  //  	console.log("They chose" + this.players.name);
+   // })
 
 
+// move chosen player out of top to player field   #chosenFigher
 
 
 	//Picking a target Enemy
@@ -50,15 +60,20 @@ var players = [
 		console.log();
 	}
 
-
+//===================================================================
 	// function playerAttack() {
 	// 	console.log();
-
+// deduct hp from enemy target
+players.enemy.hitPoints = players.enemy.hitPoints - players.player.attack
+// incrementally increase player
+players.player.attack = players.player.attack + intialAttackPower
 	// }
 
-	// function enemyAttack() {
-	// 	console.log();
 
+//========================================================================
+	// function enemyResponse() {
+	// 	console.log();
+//deduct amount in enemy.player.CounterAttack from chosenPlayer.hitPoints
 	// }
 
 	// function roundComplete() {
@@ -69,8 +84,13 @@ var players = [
 
 	// }
 
+
+
+//MAIN PROCESS
+//=====================================================================
 $( document ).ready(function() {
   // Handler for .ready() called.
+$('.characters img').click(pickPlayer);
 
 });
 
@@ -78,10 +98,9 @@ $( document ).ready(function() {
 
 
 
-//MAIN PROCESS
-//=====================================================================
 
-pickplayer();
+
+
 
 
 	
