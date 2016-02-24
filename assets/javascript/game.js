@@ -42,26 +42,36 @@ var players = [
      //alert(initialAttackPower);
 //hide the current box
       $(this).addClass('chosenFighter');
-      $(this).closest('.box').appendTo('.chosenFighter');
-      //$(this).closest('.box').fadeOut(4000);    
-      $(this).closest('.box').detach().appendTo('.chosenFighter');
+      //code for inserting before list
+	
+var node = document.getElementsByClassName("characters").lastChild;
+var list = document.getElementsByClassName("characters");
 
-     // add all but choice to enemies
+	 $('.characters img').unbind("click", pickPlayer);
+      $(this).closest('.box').insertBefore('.characters');
+     // $(this).closest('.box').clone()
+    // $(this).closest('.box').fadeOut(4000);   
+
+   //   $(this).detach().insertBefore('.characters');
+
+     // add all but choice to enemies -- this isnt working
+     //add background red
      $(".characters:not('.chosenFighter')").addClass('enemies');
+
       $('li.chosenFighter.box').fadeIn(4000);
       //unbind so no further clicks accepted
      // $unbind('click','pickPlayer');
-       $('.characters img').unbind("click", pickPlayer);
+      
  //display in figher area
  	//$(this).('.chosenFighter').append('li.chosenFighter')
  //apply red border to other boxes
-
+    //line below doesnt work
+      // $('.row.characters.enemies.box').style.backgroundColor='red';
     }
 
 
     function enemiesMade() { 
-    	//addClass() 'player' and hide '.player' in '.li' section
-    	//make visible in '#chosenFighter'
+
    	//apply red border to other boxes
 
     }
