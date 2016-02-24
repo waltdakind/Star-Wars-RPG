@@ -2,12 +2,12 @@
 //========================================
 
 // wanted to use this array but looks like referring to data stored in htm will be easier
-// var players = [
-//    {"name":"Obi-Wan Kenobi", hitPoints:120, "attack": 8 ,"counterAttack":15, "image":"obi-wan.jpg"},
-//     {"name":"Luke Skywalker", "hitPoints":100, "attack": 6 , "counterAttack":5, "image":"luke-skywalker.jpg"},
-//      {"name":"Darth Sidious", "hitPoints":150,"attack": 5, "counterAttack":20, "image":"darth-sidious.png"},
-//     {"name":"Darth Maul", "hitPoints":180,"attack": 4, "counterAttack":25, "image":"darth-maul.jpg"}
-//  ]
+var players = [
+   {"name":"Obi-Wan Kenobi", hitPoints:120, "attack": 8 ,"counterAttack":15, "image":"obi-wan.jpg"},
+    {"name":"Luke Skywalker", "hitPoints":100, "attack": 6 , "counterAttack":5, "image":"luke-skywalker.jpg"},
+     {"name":"Darth Sidious", "hitPoints":150,"attack": 5, "counterAttack":20, "image":"darth-sidious.png"},
+    {"name":"Darth Maul", "hitPoints":180,"attack": 4, "counterAttack":25, "image":"darth-maul.jpg"}
+ ]
 
 // loop through to update DOM
 // place name of character at top in .characters#name
@@ -36,7 +36,12 @@ var defender;
 
 	//	alert(event.target.id);
 	var attacker = (event.target.id);
-	//console.log(attacker);
+	//$( "#attackerId" ).data("attackerId", { initials: event.target.id});
+	console.log(attacker);
+$("#attackerId").text(attacker);
+
+
+
   $('.btn').bind("click");
  
      //set initial attack power equal to players.player.attack
@@ -74,9 +79,7 @@ var defender;
       // $('.row.characters.enemies.box').style.background:'red';
 //bind so clicks work for next function
       $('.characters img').bind("click", enemyChoice);
-function attackerId(attacker) {
-	var attackerId = attacker;
-}
+
 
     }
 
@@ -90,7 +93,7 @@ function attackerId(attacker) {
 	function enemyChoice() {
 	var defender = (event.target.id);
 	console.log(defender);
-
+	$( "#defenderId" ).data( event.target.id);
 	//addClass('defender')
       $(this).addClass('defender');
  
@@ -108,23 +111,25 @@ function attackerId(attacker) {
 
      $('.btn').bind("click");
 
-     function defenderId(defender) {
-	var defenderId = defender;
-}
 	}
 
 
 
 //===================================================================
-function attackDefender(attacker, defender) {
+function attackDefender() {
 
 	// 	console.log();
 //deduct hp from enemy target
 //debugging see if attack button registers
 //==========================
 //alert('btn registered');
-alert('attacker is ' + attacker);
+//alert('attacker is ' + attacker);
 //lookup hp for attacker and defender
+var attackerPhoto = ($( "img" ).attr( "src" ));
+
+var defenderPhoto = ($( "img" ).last().attr( "src" ));
+console.log(attackerPhoto);
+console.log(defenderPhoto);
 
 
 //turn off the button while the fight happens
