@@ -1,13 +1,13 @@
 // class of objects -- players
 //========================================
 
-
-var players = [
-   {"name":"Obi-Wan Kenobi", hitPoints:120, "attack": 8 ,"counterAttack":15, "image":"obi-wan.jpg"},
-    {"name":"Luke Skywalker", "hitPoints":100, "attack": 6 , "counterAttack":5, "image":"luke-skywalker.jpg"},
-     {"name":"Darth Sidious", "hitPoints":150,"attack": 5, "counterAttack":20, "image":"darth-sidious.png"},
-    {"name":"Darth Maul", "hitPoints":180,"attack": 4, "counterAttack":25, "image":"darth-maul.jpg"}
- ]
+// wanted to use this array but looks like referring to data stored in htm will be easier
+// var players = [
+//    {"name":"Obi-Wan Kenobi", hitPoints:120, "attack": 8 ,"counterAttack":15, "image":"obi-wan.jpg"},
+//     {"name":"Luke Skywalker", "hitPoints":100, "attack": 6 , "counterAttack":5, "image":"luke-skywalker.jpg"},
+//      {"name":"Darth Sidious", "hitPoints":150,"attack": 5, "counterAttack":20, "image":"darth-sidious.png"},
+//     {"name":"Darth Maul", "hitPoints":180,"attack": 4, "counterAttack":25, "image":"darth-maul.jpg"}
+//  ]
 
 // loop through to update DOM
 // place name of character at top in .characters#name
@@ -20,6 +20,9 @@ var players = [
  // 	$
  // }
 
+var attacker;
+var defender;
+
 //Health Points
 //Attack Power (incremental increase)
 //Counter Attack Power (fixed)
@@ -30,6 +33,10 @@ var players = [
 	//=================
 
 	function pickPlayer()  {
+
+	//	alert(event.target.id);
+	var attacker = (event.target.id);
+	//console.log(attacker);
   $('.btn').bind("click");
  
      //set initial attack power equal to players.player.attack
@@ -39,6 +46,7 @@ var players = [
       $(this).addClass('chosenFighter').css('background:white');
       //code for inserting before list
 	
+
 //var node = document.getElementsByClassName("characters").lastChild;
 //var list = document.getElementsByClassName("characters");
 
@@ -66,6 +74,10 @@ var players = [
       // $('.row.characters.enemies.box').style.background:'red';
 //bind so clicks work for next function
       $('.characters img').bind("click", enemyChoice);
+function attackerId(attacker) {
+	var attackerId = attacker;
+}
+
     }
 
     function enemiesMade() { 
@@ -76,7 +88,8 @@ var players = [
 	//Picking a target Enemy
 	//=================
 	function enemyChoice() {
-
+	var defender = (event.target.id);
+	console.log(defender);
 
 	//addClass('defender')
       $(this).addClass('defender');
@@ -94,17 +107,26 @@ var players = [
       $('.defender.box').fadeIn(4000);
 
      $('.btn').bind("click");
+
+     function defenderId(defender) {
+	var defenderId = defender;
+}
 	}
 
 
 
 //===================================================================
-function attackDefender() {
+function attackDefender(attacker, defender) {
 
 	// 	console.log();
 //deduct hp from enemy target
+//debugging see if attack button registers
+//==========================
+//alert('btn registered');
+alert('attacker is ' + attacker);
+//lookup hp for attacker and defender
 
-alert('btn registered');
+
 //turn off the button while the fight happens
 //$('button').unbind("click", enemyChoice);
 
@@ -139,7 +161,6 @@ $('.enemies img').click(enemyChoice);
 $('.btn').click(attackDefender);
 
 });
-
 
 
 
