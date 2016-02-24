@@ -43,11 +43,13 @@ var players = [
 //hide the current box
       $(this).addClass('chosenFighter');
       $(this).closest('.box').appendTo('.chosenFighter');
-      $(this).closest('.box').fadeOut(4000);
-      $(this).closest('.box').appendTo('.chosenFighter');
-      $(this).closest('.box').FadeIn(4000);
- //unbind so no further clicks accepted
-	//$unbind('click','pickPlayer');
+      //$(this).closest('.box').fadeOut(4000);    
+      $(this).closest('.box').detach().appendTo('.chosenFighter');
+
+      $('li.chosenFighter.box').fadeIn(4000);
+      //unbind so no further clicks accepted
+     // $unbind('click','pickPlayer');
+       $('.characters img').unbind("click", pickPlayer);
  //display in figher area
  	//$(this).('.chosenFighter').append('li.chosenFighter')
  //apply red border to other boxes
@@ -55,10 +57,11 @@ var players = [
     }
 
 
-    function playerChosen() { 
+    function enemiesMade() { 
     	//addClass() 'player' and hide '.player' in '.li' section
     	//make visible in '#chosenFighter'
-   	
+   	//apply red border to other boxes
+
     }
 
 
@@ -109,7 +112,7 @@ $(document).ready (function(){
 //picking character to play first
 $('.characters img').click(pickPlayer);
 
-
+$('characters img').click(enemyChoice);
 //populate the chosen char in the .li.chosenFigher area
 
 
