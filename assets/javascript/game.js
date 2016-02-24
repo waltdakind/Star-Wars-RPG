@@ -44,8 +44,8 @@ var players = [
       $(this).addClass('chosenFighter');
       //code for inserting before list
 	
-var node = document.getElementsByClassName("characters").lastChild;
-var list = document.getElementsByClassName("characters");
+//var node = document.getElementsByClassName("characters").lastChild;
+//var list = document.getElementsByClassName("characters");
 
 	 $('.characters img').unbind("click", pickPlayer);
       $(this).closest('.box').insertBefore('.characters');
@@ -59,6 +59,7 @@ var list = document.getElementsByClassName("characters");
      $(".characters:not('.chosenFighter')").addClass('enemies');
 
       $('li.chosenFighter.box').fadeIn(4000);
+
       //unbind so no further clicks accepted
      // $unbind('click','pickPlayer');
       
@@ -67,6 +68,8 @@ var list = document.getElementsByClassName("characters");
  //apply red border to other boxes
     //line below doesnt work
       // $('.row.characters.enemies.box').style.backgroundColor='red';
+//bind so clicks work for next function
+      $('.characters img').bind("click", enemyChoice);
     }
 
 
@@ -83,12 +86,31 @@ var list = document.getElementsByClassName("characters");
 	//Picking a target Enemy
 	//=================
 	function enemyChoice() {
-//addClass('target')
 
+	//addClass('defender')
+
+      $(this).addClass('defender');
+ 
+
+	 $('.characters img').unbind("click", enemyChoice);
+      $(this).closest('.box').insertAfter('.characters');
+ 
+
+   //   $(this).detach().insertAfter('.characters');
+
+
+     // add all but choice to enemies -- this isnt working
+     //add background black to defender, red to remaining enemies
+
+
+
+     //$(".characters:not('.defender')").addClass('remaining');
+
+      $('.defender.box').fadeIn(4000);
 
 //hide target class from box area
 //   --
-		console.log();
+	
 	}
 
 //===================================================================
@@ -124,7 +146,7 @@ $(document).ready (function(){
 //picking character to play first
 $('.characters img').click(pickPlayer);
 
-$('characters img').click(enemyChoice);
+$('.enemies img').click(enemyChoice);
 //populate the chosen char in the .li.chosenFigher area
 
 
