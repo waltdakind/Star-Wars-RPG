@@ -36,16 +36,21 @@ var players = [
 	//=================
 
 	function pickPlayer()  {
-     console.log('registered click 1')
+   
      //set initial attack power equal to players.player.attack
     // initialAttackPower = players.attack.value(this);
      //alert(initialAttackPower);
 //hide the current box
       $(this).addClass('chosenFighter');
+      $(this).closest('.box').appendTo('.chosenFighter');
       $(this).closest('.box').fadeOut(4000);
+      $(this).closest('.box').appendTo('.chosenFighter');
+      $(this).closest('.box').FadeIn(4000);
  //unbind so no further clicks accepted
- 
+	//$unbind('click','pickPlayer');
  //display in figher area
+ 	//$(this).('.chosenFighter').append('li.chosenFighter')
+ //apply red border to other boxes
 
     }
 
@@ -57,7 +62,7 @@ var players = [
     }
 
 
-// move chosen player out of top to player field   #chosenFigher
+// move chosen player out of top to player field   #chosenFighter
 
 
 	//Picking a target Enemy

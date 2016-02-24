@@ -28,7 +28,28 @@ p {
 	margin: 3px auto;
 }
 
-div.box{
+div.box {
+	padding: 0 2%;
+    background: white;
+    border: 3px solid green;
+    max-height:130px;
+}
+li.chosenFighter.box {
+	padding: 0 2%;
+    background: white;
+    border: 3px solid green;
+    max-height:130px;
+}
+img.chosenFighter {
+	height: 100px;
+	width: 100%;
+}
+img.defender {
+	height: 100px;
+	width: 100%;	
+}
+
+li.defender.box{
 	padding: 0 2%;
     background: white;
     border: 3px solid green;
