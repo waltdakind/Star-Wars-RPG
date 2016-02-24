@@ -1,47 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Star Wars RPG</title>
-	<<!-- Latest compiled and minified CSS & JS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<script src="//code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-</head>
-<body>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Star Wars RPG</title>
+		<link rel="stylesheet" href="assets/css/reset.css">
+	<link href='https://fonts.googleapis.com/css?family=Orbitron:400,500' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-<nav>
 
-               
-</nav>
-  
-<div class="container-fluid text-center">    
-  <div class="row content">
-    <div class="col-sm-2 sidenav">
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="assets/css/style.css">
 
-    </div>
-    <div class="col-sm-8 text-left"> 
-      <h1> 
-       
-        Star Wars RPG 
-        
-      </h1>
-      <p></p>
+	</head>
+	<body>
+	<div class = "pull-right header">
+		<h1> Star Wars RPG </h1>
+		<!--characters for choices here "playerChoice -->
+	</div>
 
-      <hr>
+	<div class="container-fluid">
+	<div class="row">
+		<br>
 
-      
-  </div>
-    <div class="col-sm-2 sidenav">
-        
-      
-    </div>
-  </div>
+	</div>
+		<div class="row characters">
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 box">
+			<p>Obi-Wan</p> 
+			<img src="assets/images/obi-wan.jpg">
+			<p class = "text-center hitPoints"></p>
+			</div>
+
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 box">
+			<p>Luke Skywalker</p>	
+			<img src="assets/images/luke-skywalker.jpg">
+			<p class = "text-center hitPoints"></p>
+			</div>
+
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 box">
+			<p>Darth Sidious</p>	
+			<img src="assets/images/darth-sidious.png">
+			<p class = "text-center hitPoints"></p>
+			</div>
+
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 box">
+			<p>Darth Maul</p>	
+			<img src="assets/images/darth-maul.jpg">
+			<p class = "text-center hitPoints"></p>
+			</div>
+
+		</div>
+
+<ul>
+<div><br></div>
+	<li>Your Character</li>
+	<li>Enemies Available to Attack</li>
+	<li>Fight Section</li>
+	<li <button type="button" class="btn btn-default">Attack</button></li>
+	<li>Defender</li>
+</ul>
 </div>
-
-<footer class="container-fluid text-center">
-  <p>"May the force be with you"</p>
-</footer>
-
-</body>
+		<!-- jQuery -->
+		<script src="//code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+ 		<script src="assets/javascript/game.js"></script>
+	</body>
 </html>
