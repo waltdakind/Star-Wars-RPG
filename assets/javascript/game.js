@@ -9,22 +9,16 @@ var players = [
     {"name":"Darth Maul", "hitPoints":180,"attack": 4, "counterAttack":25, "image":"darth-maul.jpg"}
  ]
 
-
 // loop through to update DOM
 // place name of character at top in .characters#name
 // place image variable in "<img src="assets/images/" +$(this)
 //place hit points in .character#hitPoints
-
 
  // for(var i = 0; i < players.length; i++) {
  // 	//create initial display here
 
  // 	$
  // }
-
-
-
-
 
 //Health Points
 //Attack Power (incremental increase)
@@ -36,12 +30,13 @@ var players = [
 	//=================
 
 	function pickPlayer()  {
-   
+  $('.btn').bind("click");
+ 
      //set initial attack power equal to players.player.attack
     // initialAttackPower = players.attack.value(this);
      //alert(initialAttackPower);
 //hide the current box
-      $(this).addClass('chosenFighter');
+      $(this).addClass('chosenFighter').css('background:white');
       //code for inserting before list
 	
 //var node = document.getElementsByClassName("characters").lastChild;
@@ -58,84 +53,72 @@ var players = [
      //add background red
      $(".characters:not('.chosenFighter')").addClass('enemies');
 
+     //$('.div.box.enemies').css('background:red');
       $('li.chosenFighter.box').fadeIn(4000);
 
       //unbind so no further clicks accepted
      // $unbind('click','pickPlayer');
-      
+     
  //display in figher area
  	//$(this).('.chosenFighter').append('li.chosenFighter')
  //apply red border to other boxes
     //line below doesnt work
-      // $('.row.characters.enemies.box').style.backgroundColor='red';
+      // $('.row.characters.enemies.box').style.background:'red';
 //bind so clicks work for next function
       $('.characters img').bind("click", enemyChoice);
     }
 
-
     function enemiesMade() { 
 
    	//apply red border to other boxes
-
     }
-
-
-// move chosen player out of top to player field   #chosenFighter
-
 
 	//Picking a target Enemy
 	//=================
 	function enemyChoice() {
 
-	//addClass('defender')
 
+	//addClass('defender')
       $(this).addClass('defender');
  
-
 	 $('.characters img').unbind("click", enemyChoice);
-      $(this).closest('.box').insertAfter('.characters');
+      $(this).closest('.box').insertAfter('.characters').css('border-color::black');
  
-
    //   $(this).detach().insertAfter('.characters');
-
 
      // add all but choice to enemies -- this isnt working
      //add background black to defender, red to remaining enemies
 
-
-
-     //$(".characters:not('.defender')").addClass('remaining');
+     $(".characters:not('.defender')").addClass('remaining');
 
       $('.defender.box').fadeIn(4000);
 
-//hide target class from box area
-//   --
-	
+     $('.btn').bind("click");
 	}
 
+
+
 //===================================================================
-	// function playerAttack() {
+function attackDefender() {
+
 	// 	console.log();
-// deduct hp from enemy target
-//players.enemy.hitPoints = players.enemy.hitPoints - players.player.attack
+//deduct hp from enemy target
+
+alert('btn registered');
+//turn off the button while the fight happens
+//$('button').unbind("click", enemyChoice);
+
 // incrementally increase player
-//players.player.attack = players.player.attack + intialAttackPower
-	// }
 
 
-//========================================================================
-	// function enemyResponse() {
-	// 	console.log();
-//deduct amount in enemy.player.CounterAttack from chosenPlayer.hitPoints
-	// }
+//defender attack
 
-	// function roundComplete() {
-	// 	console.log();
-	// }
+//turn button back on for next round
+//$('.btn').bind("click", attackDefender);
 
-	// function increaseAttackPower() {
+};
 
-	// }
+
 
 
 
@@ -148,7 +131,12 @@ $('.characters img').click(pickPlayer);
 
 $('.enemies img').click(enemyChoice);
 //populate the chosen char in the .li.chosenFigher area
+//background not changing!!!! work on this after figth engine implemented
 
+
+//call the fight function on button click
+
+$('.btn').click(attackDefender);
 
 });
 
