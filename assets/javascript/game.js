@@ -128,9 +128,98 @@ function attackDefender() {
 var attackerPhoto = ($( "img" ).attr( "src" ));
 
 var defenderPhoto = ($( "img" ).last().attr( "src" ));
-console.log(attackerPhoto);
-console.log(defenderPhoto);
 
+// if(attackerPhoto === "assets/images/obi-wan.jpg") {
+//  var attackerHP = 120 && initialAttackPower= 8} 
+
+
+// skip attacker after 1st round
+
+switch (attackerPhoto) {
+    case "assets/images/obi-wan.jpg":
+        var attackerHP = 120;
+        var initialAttackPower = 9;
+        var hero = "Obi-Wan Kenobi";
+currentAttackPower = initialAttackPower;
+        break; 
+    case "assets/images/luke-skywalker.jpg":
+        var attackerHP = 100;
+        var initialAttackPower = 10;
+currentAttackPower = initialAttackPower;
+        var hero = "Luke Skywalker";
+        break; 
+    case "assets/images/darth-sidious.png":
+        var attackerHP = 150;
+        var initialAttackPower = 5;
+currentAttackPower = initialAttackPower;
+        var hero = "Darth Sidious";
+        break; 
+    case "assets/images/darth-maul.jpg":
+        var attackerHP = 180;
+        var initialAttackPower = 4;
+currentAttackPower = initialAttackPower;
+        var hero = "Darth Maul";
+        break; 
+}
+
+
+switch (defenderPhoto) {
+    case "assets/images/obi-wan.jpg":
+        var defenderHP = 120;
+        var counterAttack = 30;
+        var innocentVictimOfAssault = ""
+        break; 
+    case "assets/images/luke-skywalker.jpg":
+        var defenderHP = 100;
+        var counterAttack = 40;
+        var innocentVictimOfAssault = "Luke Skywalker";
+        break; 
+    case "assets/images/darth-sidious.png":
+        var defenderHP = 150;
+        var counterAttack = 25;
+        var innocentVictimOfAssault = "Darth Sidious";
+        break; 
+    case "assets/images/darth-maul.jpg":
+        var defenderHP = 180;
+        var counterAttack = 20;
+        var innocentVictimOfAssault = "Darth Maul";
+        break; 
+}
+
+
+defenderHP = defenderHP - currentAttackPower;
+attackerHP = attackerHP - counterAttack;
+
+alert(hero + ' inflicted ' + currentAttackPower + ' points of damage. ');
+alert(innocentVictimOfAssault + ' inflicted ' + counterAttack + ' points of damage in return.');
+currentAttackPower = initialAttackPower + currentAttackPower;
+
+$("#battle").text(hero + ' inflicted ' + currentAttackPower + ' points of damage. ' + innocentVictimOfAssault + ' inflicted ' + counterAttack + ' points of damage in return.'  + '<p> HP remaining for ' + hero + " = " + attackerHP + "</p>" + "<p> HP remaining for " + innocentVictimOfAssault + " = " + defenderHP);
+
+
+function anotherRound() {
+	if (defenderHP <= 0) {
+		alert('You won this round - ' + innocentVictimOfAssault + ' is dead.');
+	}
+	else if (attackerHP<=0) {
+		alert('You lost. You are dead.');
+	}
+	else {
+	defenderHP = defenderHP - currentAttackPower;
+attackerHP = attackerHP - counterAttack;
+
+//alert(hero + ' inflicted ' + currentAttackPower + ' points of damage. ');
+//alert(innocentVictimOfAssault + ' inflicted ' + counterAttack + ' points of damage in return.');
+currentAttackPower = initialAttackPower + currentAttackPower;
+
+alert(hero + ' inflicted ' + currentAttackPower + 
+' points of damage. ' + innocentVictimOfAssault + ' inflicted ' 
++ counterAttack + ' points of damage in return.'  + '<p> HP remaining for ' + hero + " = " + attackerHP + "</p>" +
+"<p> HP remaining for " + innocentVictimOfAssault + " = " + defenderHP + ".");
+}
+}
+
+anotherRound();
 
 //turn off the button while the fight happens
 //$('button').unbind("click", enemyChoice);
@@ -143,7 +232,8 @@ console.log(defenderPhoto);
 //turn button back on for next round
 //$('.btn').bind("click", attackDefender);
 
-};
+}
+
 
 
 
@@ -164,7 +254,7 @@ $('.enemies img').click(enemyChoice);
 //call the fight function on button click
 
 $('.btn').click(attackDefender);
-
+$('.btn').click(anotherRound);
 });
 
 
