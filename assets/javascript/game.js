@@ -46,6 +46,8 @@ var players = [
       //$(this).closest('.box').fadeOut(4000);    
       $(this).closest('.box').detach().appendTo('.chosenFighter');
 
+     // add all but choice to enemies
+     $(".characters:not('.chosenFighter')").addClass('enemies');
       $('li.chosenFighter.box').fadeIn(4000);
       //unbind so no further clicks accepted
      // $unbind('click','pickPlayer');
