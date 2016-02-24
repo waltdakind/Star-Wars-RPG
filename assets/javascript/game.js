@@ -196,6 +196,10 @@ currentAttackPower = initialAttackPower + currentAttackPower;
 
 $("#battle").text(hero + ' inflicted ' + currentAttackPower + ' points of damage. ' + innocentVictimOfAssault + ' inflicted ' + counterAttack + ' points of damage in return.'  + '<p> HP remaining for ' + hero + " = " + attackerHP + "</p>" + "<p> HP remaining for " + innocentVictimOfAssault + " = " + defenderHP);
 
+do {
+	anotherRound();
+}
+while (defenderHP >= 0 && attackerHP >= 0);
 
 function anotherRound() {
 	if (defenderHP <= 0) {
@@ -219,7 +223,7 @@ alert(hero + ' inflicted ' + currentAttackPower +
 }
 }
 
-anotherRound();
+
 
 //turn off the button while the fight happens
 //$('button').unbind("click", enemyChoice);
@@ -254,7 +258,7 @@ $('.enemies img').click(enemyChoice);
 //call the fight function on button click
 
 $('.btn').click(attackDefender);
-$('.btn').click(anotherRound);
+
 });
 
 
