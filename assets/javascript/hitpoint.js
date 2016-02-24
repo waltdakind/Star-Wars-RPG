@@ -13,6 +13,9 @@
 
 //console.log(name);
 //playerhp
+
+//update myHp based on selection 
+
 var myHp = 120;
 
 //opponent HP
@@ -49,7 +52,7 @@ else {
 //update HTML with jQuery
 
 
-$('p#hp').append(myHp);
+$('p.hitPoints').append(myHp);
 $('p#oppHp').append(oppHp);
 $('p#myDam').append(myDam);
 $('p#theirDam').append(oppDam);
